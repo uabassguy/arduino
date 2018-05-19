@@ -22,7 +22,7 @@ void setup()
 
 void loop(){
   sensors.requestTemperatures();
-  float currentTemp = sensors.getTempFByIndex(0);
+  long currentTemp = sensors.getTempFByIndex(0);
   if (currentTemp < fanInitTemp){
     Serial.print("Temp less than threshold ");
     Serial.print(fanInitTemp);
@@ -47,7 +47,7 @@ void loop(){
 
   Serial.print("Waiting for cooldown.");
   //Serial.print(sensors.getTempFByIndex(0));
-  float newTemp;
+  long newTemp;
   do {
     sensors.requestTemperatures();
     newTemp = sensors.getTempFByIndex(0);
